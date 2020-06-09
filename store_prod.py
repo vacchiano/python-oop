@@ -12,7 +12,7 @@ class Store:
         return self
     
     def sell_product(self, id):
-        print("Name: {}, Price: {}, Category {}".format(self.products[id].name,self.products[i].price, self.products[i].category))
+        print("Name: {}, Price: {}, Category {}".format(self.products[id].name,self.products[id].price, self.products[id].category))
         del self.products[id]
 
     def inflation(self, percent_increase):
