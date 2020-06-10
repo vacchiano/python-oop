@@ -4,9 +4,9 @@ from random import randint
 
 # the general animal class
 class Animal:
-    def __init__(self, name, age, health, happiness):
+    def __init__(self, name, age=randint(1,20), health=randint(20,100), happiness=randint(20,100)):
         self.name = name
-        self.age = age
+        self.age = randint(1,20)
         self.health = randint(20,100)
         self.happiness = randint(20,100)
 
@@ -27,18 +27,28 @@ class Animal:
         return self
 
 class Lion(Animal):
-    def __init__(self, name, age, health, happiness):
-        super().__init__(name, age, health, happiness)
+    def __init__(self, name):
+        super().__init__(name)
         self.type = "Lion"
 
+    def display_info(self):
+        myString = (f"Type: {self.type}, ")
+        myString += super().display_info()
+        print(myString)
+
 class Tiger(Animal):
-    def __init__(self, name, age, health, happines):
-        super().__init__(name, age, health, happines)
+    def __init__(self, name):
+        super().__init__(name)
         self.type = "Tiger"
 
+    def display_info(self):
+        myString = (f"Type: {self.type}, ")
+        myString += super().display_info()
+        print(myString)
+
 class Bear(Animal):
-    def __init__(self, name, age, health, happines):
-        super().__init__(name, age, health, happines)
+    def __init__(self, name):
+        super().__init__(name)
         self.type = "Bear"
 
     def display_info(self):
@@ -47,7 +57,9 @@ class Bear(Animal):
         print(myString)
 
 
-tim_bear = Bear("Tim", 12, 90, 90)
-tim_bear.display_info()
-tim_bear.feed()
-tim_bear.display_info()
+# run this if calling this file directly
+if __name__ == '__main__':
+    tim_bear = Bear("Tim")
+    tim_bear.display_info()
+    tim_bear.feed()
+    tim_bear.display_info()
